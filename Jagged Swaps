@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for(int i = 1; i< n;i++)
+#define in(x) cin>>x
+using ll = long long;
+
+//hi stalker :)
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        in(n);
+        vector<int> a(n);
+        for(int i = 0; i< n; i++){
+            in(a[i]);
+        }
+        
+        if(a[0] == 1){
+            cout<<"YES"<<endl;
+        }else{
+            cout<<"NO"<<endl;
+        }
+
+    }
+}

@@ -24,3 +24,4 @@ int main(){
 
     }
 }
+//Understand from the constraints (2,n) means 1st value can't be changed so it must be sorted/

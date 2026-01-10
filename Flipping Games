@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for(int i = 0;i < n; i++)
+#define repa(a,b) for(int i =a; i <= b; i++)
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int n;
+    cin>>n;
+    vector<int> a(n);
+    rep(i,n) cin>>a[i];
+    int maxgains = 0;
+    int curgains = 0;
+    int ones = 0;
+    rep(i,n){
+        if(a[i] == 1) ones++;
+    }
+ 
+    rep(i,n){
+        curgains += (a[i] == 0)? 1: -1;
+        maxgains = max(maxgains,curgains);
+        if(curgains < 0) curgains = 0;
+    }
+    if(ones == n){
+        cout<<n-1<<endl;
+    }else{
+        cout<<ones+maxgains<<endl;
+    }
+}

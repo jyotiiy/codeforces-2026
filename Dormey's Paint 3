@@ -1,0 +1,60 @@
+//HEY STRANGER :) 
+#include<bits/stdc++.h>
+using namespace std;
+using namespace chrono;
+typedef long long int ll;
+typedef unsigned long long int ull;
+typedef long double ld;
+
+#define rep(i,n) for(int i = 0; i < n; i++)
+#define repa(a,b) for(int  = a; i <= b; i++)
+#define repr(i,n) for(int i = n-1; i>=0; i--)
+#define make_it_fast() ios::sync_with_stdio(false); cin.tie(0);
+#define lb lower_bound
+#define ub upper_bound
+#define pb push_back
+#define all(x) x.begin(),x.end()
+#define sor(x) sort(all(x))
+#define nn endl
+#define vec vector<ll>
+
+const ll MOD = 1e9 +7;
+ll gcd(ll a, ll b){ if(b == 0){return a;}if(a >= b){return gcd(b,a%b);}else{return gcd(b,a);}}
+
+int main(){
+    make_it_fast();
+    int t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+        vector<ll> a(n);
+        rep(i,n){
+            cin>>a[i];
+        }
+        
+        map<ll,ll> list;
+        rep(i,n){
+            list[a[i]]++;
+        }
+        ll dis = list.size();
+        if(n == 2 || dis == 1){
+            cout<<"Yes"<<nn;
+        }else{
+            if(dis == 2){
+                
+                auto it = list.begin();
+                ll first = it->second;
+                it++;
+                ll second = it->second;
+                if(abs(first-second)){
+                    cout<<"Yes"<<nn;
+                }else{
+                    cout<<"No"<<nn;
+                }
+            }else{
+                cout<<"No"<<nn;
+            }
+        }
+    }
+} 

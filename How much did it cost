@@ -1,0 +1,23 @@
+//Beautiful day it was <3
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        vector<int> integer(n);
+        for(int i = 0; i < n; i++){
+            cin>>integer[i];
+        }
+        if(find(integer.begin(), integer.end(), k) != integer.end()){
+            cout<<"YES"<<endl;
+        }else{
+            cout<<"NO"<<endl;
+        }
+    }
+}

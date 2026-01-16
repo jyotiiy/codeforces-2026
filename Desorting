@@ -1,0 +1,33 @@
+//Hogayi teri balle balle , hojayegi balle balle ^_^
+#include<bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for(int i = 0; i < n; i++)
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> a(n);
+        rep(i,n){
+            cin>>a[i];
+        }
+        if(!is_sorted(a.begin(),a.end())){
+            cout<<0<<endl;
+        }else{
+              int min_diff = INT_MAX;
+              for(int i = 1; i< n; i++){
+                min_diff = min(min_diff,a[i]-a[i-1]);
+              }
+              if(min_diff == 0){
+                cout<<1<<endl;
+              }else{
+                if(min_diff%2 == 0){
+                    cout<<(min_diff+2)/2<<endl;
+                }else{
+                    cout<<(min_diff+1)/2<<endl;
+                }
+              }                                                                                            
+        }
+    }
+}

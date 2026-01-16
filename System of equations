@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    int n,m;
+    cin>>n>>m;
+    int count = 0;
+    int i = 0;
+    while(n-i*i >= 0){
+        int b = n-i*i;
+        if(b*b + i == m){
+            count++;
+        }
+        i++;
+    }
+    cout<<count<<endl;
+}

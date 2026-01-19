@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+using ll = long long;
+#define rep(i,n) for(ll i= 0; i <n; i++)
+void solve(){
+    ll n,m,h;
+    cin>>n>>m>>h;
+    vector<ll> A(n);
+    set<ll> S;
+    rep(i,n) cin>>A[i];
+    auto B = A;
+ 
+    while(m--){
+        ll b,c;
+        cin>>b>>c;
+        b--;
+        if(S.find(b) != S.end()) B[b] += c;
+        else{
+            B[b] = A[b] + c;
+            S.insert(b);
+        }
+        if(B[b] > h) S.clear();
+    }
+    rep(i,n) if(S.find(i) == S.end()) B[i] = A[i];
+    for(ll i: B) cout<<i<<" ";
+    cout<<endl;
+}
+signed main(){
+    int t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}

@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for(int i = 0; i < n; i++)
+using ll = long long;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        vector<int> a(n);
+        rep(i,n) cin>>a[i];
+        vector<int> max_prefix(n);
+        int mx = INT_MIN;
+        auto max_index = max_element(a.begin(),a.end());
+        int max_in = max_index - a.begin();
+        swap(a[max_in],a[0]);
+        ll sum = 0;
+        for(int i = 0; i < n; i++){
+            mx = max(a[i],mx);
+            max_prefix[i] = mx;
+        }
+        rep(i,n){
+            sum+= max_prefix[i];
+        }
+        cout<<sum<<endl;
+    }
+}

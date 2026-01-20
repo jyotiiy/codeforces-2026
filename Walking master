@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+#define rep(i,n) for(int i = 0; i < n; i++)
+using ll = long long;
+ 
+void solve(){
+    ll a,b,c,d;
+    cin>>a>>b>>c>>d;
+ 
+    ll m = d - b;
+    ll n = m-(c-a);
+ 
+     if(m < 0 || n < 0){
+        cout<<-1<<endl;
+     }else{
+        cout<<m+n<<endl;
+     }
+ 
+}
+signed main(){
+    ll t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}

@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for(int i = 0;i < n; i++)
+using ll = long long;
+
+void solve(){
+    ll n;
+    cin>>n;
+
+    vector<int> a(n);
+    rep(i,n) cin>>a[i];
+
+    ll xo = 0;
+    rep(i,n){
+        xo = (xo ^ a[i]);
+    }
+
+    if(xo == 0){
+        cout<<0<<endl;
+    }else if( n & 1){
+        cout<<xo<<endl;
+    }else{
+        cout<<-1<<endl;
+    }
+}
+int main(){
+    ll t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}

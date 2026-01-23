@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+#define rep(i,n) for(int i = 0; i < n; i++)
+ 
+using ll = long long;
+ 
+signed main(){
+    ll k,n,w;
+    cin>>k>>n>>w;
+ 
+    ll total_cost = k*(w*(w+1)/2);
+ 
+    cout<<( (total_cost<n )? 0:total_cost-n)<<endl;
+}

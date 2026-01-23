@@ -1,0 +1,29 @@
+//But i don't hehe!!
+#include<bits/stdc++.h>
+using namespace std;
+ 
+using ll = long long;
+#define rep(i,n) for(int i = 0; i < n; i++)
+ 
+void solve(){
+    ll n;
+    cin>>n;
+ 
+    vector<ll> a(n);
+    rep(i,n) cin>>a[i];
+ 
+    ll op = 0;
+    for(int i = 0; i < n-1; i++){
+        if( (a[i]%2) == (a[i+1]%2)){
+            op++;
+        }
+    }
+    cout<<op<<endl;
+}
+signed main(){
+    ll t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}

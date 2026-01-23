@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+#define rep(i,n) for(int i = 0; i < n; i++)
+using ll = long long;
+ 
+void solve(){
+    ll n;
+    cin>>n;
+ 
+    vector<ll> a(n);
+    rep(i,n) cin>>a[i];
+ 
+    vector<int> prefix_prod(n);
+    
+    ll total_twos = 0;
+ 
+    for(int i = 0; i < n; i++){
+        if(a[i] == 2){
+            total_twos++;
+        }
+        prefix_prod[i] = total_twos;
+    }
+ 
+    for(int i = 0; i < n; i++){
+        if(prefix_prod[i] == (total_twos - prefix_prod[i])){
+            cout<<i+1<<endl;
+            return;
+        }
+    }
+ 
+    cout << -1 << endl;
+    return;
+}
+signed main(){
+    ll t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}

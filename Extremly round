@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+#define rep(i,n) for(int i = 0; i < n; i++)
+
+signed main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    
+    ll t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+
+        if( n < 9 ){
+            cout<<n<<endl;
+        }else{
+            string s = to_string(n);
+            int siz = s.size();
+
+            cout<< 9 * (siz-1) + (s[0]-'0')<<endl;
+
+        }
+    }
+
+}

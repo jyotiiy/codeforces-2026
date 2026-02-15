@@ -1,0 +1,122 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define JAI_SHREE_RAM ios::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+ 
+#define ull unsigned long long
+#define ll long long
+#define ld long double
+ 
+#define py cout << "YES\n";
+#define pn cout << "NO\n";
+ 
+#define all(x) (x).begin(), (x).end()
+#define rep(i, n) for (ll i = 0; i < (n); i++)
+ 
+const ll mod  = 1e9 + 7;
+const ll mod1 = 998244353;
+const ll N    = 5e4 + 10;
+ 
+vector<vector<ll>> facs(N);
+ 
+void compute_factors() {
+    for (ll i = 1; i < N; i++) {
+        for (ll j = i; j < N; j += i) {
+            facs[j].push_back(i);
+        }
+    }
+}
+ 
+void print(vector<vector<ll>> vec){
+    for(ll i = 0; i < vec.size(); i++){
+        for(ll j = 0; j < vec[0].size(); j++){
+            cout << vec[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+ 
+ll count_ones(vector<vector<ll>> vec){
+    ll c = 0;
+    for(ll i = 0; i < vec.size(); i++){
+        for(ll j = 0; j < vec[0].size(); j++){
+            if(vec[i][j]) c++;
+        }
+    }
+    return c;
+}
+ 
+signed main(){
+    JAI_SHREE_RAM;
+ 
+    ll t;
+    cin >> t;
+ 
+    while(t--){
+        ll n,m;
+        cin >> n >> m;
+ 
+        vector<vector<ll>> vec(n,vector<ll>(m));
+ 
+        for(ll i = 0; i < n; i++){
+            for(ll j = 0; j < m; j++){
+                cin >> vec[i][j];
+            }
+        }
+ 
+        ll count_1 = count_ones(vec);
+        ll target = count_1/2;
+        ll lim = n-1;
+    
+        vector<ll> helper;
+        ll counts = 0;
+ 
+        for(ll j = m-1; j >= 0; j--){
+            ll i = 0;
+            for(i = 0; i <= lim; i++){
+                if(vec[i][j]){
+                    counts++;
+                    if(counts == target){
+                        helper.push_back(i+1);
+                        lim = i;
+                        break;
+                    }
+                }
+            }
+            if(i > lim) helper.push_back(lim+1);
+            if(counts >= target) break;
+        }
+ 
+        ll siz = helper.size();
+        for(ll i = 0; i < m-siz; i++){
+            helper.push_back(0);
+        }
+ 
+        reverse(helper.begin(),helper.end());
+ 
+        ll prev = 0;
+        ll cntR = 0;
+        ll cntD = 0;
+        string ans = "";
+ 
+        for(ll i = 0; i < m; i++){
+            if(helper[i] != prev){
+                for(ll j = prev; j < helper[i]; j++){
+                    ans.push_back('D');
+                    cntD++;
+                }
+            }
+            ans.push_back('R');
+            cntR++;
+            prev = helper[i];
+        }
+ 
+        while(cntD < n){
+            ans.push_back('D');
+            cntD++;
+        }
+ 
+        cout << counts * (count_1-counts) << endl;
+        cout << ans << endl;
+    }
+}

@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define JAI_SHREE_RAM ios::sync_with_stdio(false); cin.tie(0);
+using ll = long long;
+ 
+signed main(){
+    ll t;
+    cin >> t;
+    while ( t-- )
+    {
+        ll n; cin >> n;
+        string s;
+        cin >> s;
+ 
+        ll ans = 0;
+        ll cur = 1;
+        for(int i = 1; i < n; i++){
+            if(s[i] == s[i-1]){
+                cur ++;
+            }else{
+                ans = max(ans,cur);
+                cur = 1;
+            }
+        }
+ 
+        cout << max(cur,ans)+1 << endl;
+    }
+    
+}

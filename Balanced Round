@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define JAI_SHREE_RAM ios::sync_with_stdio(false); cin.tie(0);
+using ll = long long;
+ 
+signed main(){
+    ll t; cin >> t;
+    while ( t-- )
+    {
+        ll n; cin >> n;
+        ll k; cin >> k;
+        vector<ll> a(n);
+        for(int i = 0; i < n; i++) cin >> a[i];
+ 
+        sort(a.begin(),a.end());
+        ll ans = 1; 
+        ll cur = 1;
+        for(int i = 1; i < n; i++){
+            if(a[i] - a[i-1] <= k){
+                cur ++;
+            }else{
+                ans = max(cur,ans);
+                cur = 1;
+            }
+        }
+        ans = max(ans,cur);
+        cout << n-ans << endl;
+    }
+    
+}
